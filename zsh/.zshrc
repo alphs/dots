@@ -12,6 +12,7 @@ plug "zsh-users/zsh-history-substring-search"
 # --- local
 plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
+plug "$HOME/.config/zsh/zsh-lsd.zsh"
 # ---
 
 HISTFILE="$HOME/.zsh_history"
