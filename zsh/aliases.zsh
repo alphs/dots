@@ -1,5 +1,6 @@
 # --- nv aliases
 #nv() { nvim "$@"; }
+alias nvo="/usr/local/bin/nvim"
 alias nv="nvim"
 alias nvv="nv -R"
 alias nz='nv ~/.config/zsh/.zshrc'

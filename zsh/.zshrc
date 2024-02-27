@@ -1,3 +1,5 @@
+#zmodload zsh/zprof
+
 local zap_path="${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 [ -f "$zap_path" ] && source "$zap_path"
 
@@ -17,9 +19,15 @@ plug "$HOME/.config/zsh/zsh-lsd.zsh"
 
 HISTFILE="$HOME/.zsh_history"
 
+##zstyle ':completion:*:*:git:*' script $HOME/.config/dots/installs/from_source/git-source/contrib/completion/git-completion.bash
+
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
 
+eval "$(zoxide init zsh --cmd cd)"
+
 # Should be at the end
 eval "$(starship init zsh)"
+#zprof
+
