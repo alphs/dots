@@ -140,3 +140,4 @@ installs/bins
 installs/from_source
 installs/fonts_icons
 zsh/completions
+starship/cache
