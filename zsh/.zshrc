@@ -27,7 +27,9 @@ compinit
 
 eval "$(zoxide init zsh --cmd cd)"
 
+
+. "$HOME/.cargo/env"
+
 # Should be at the end
 eval "$(starship init zsh)"
 #zprof
-
