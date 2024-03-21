@@ -1,4 +1,4 @@
-#zmodload zsh/zprof
+#zmodload zsh/zpro
 
 local zap_path="${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 [ -f "$zap_path" ] && source "$zap_path"
