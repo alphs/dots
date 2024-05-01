@@ -18,6 +18,8 @@ if is_darwin() == true then
 	config.send_composed_key_when_left_alt_is_pressed = true
 	config.send_composed_key_when_right_alt_is_pressed = false
 end
+
+config.audible_bell = "Disabled"
 -- }} Misc
 
 -- {{ Looks
