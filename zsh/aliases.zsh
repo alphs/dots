@@ -1,18 +1,22 @@
 # --- nv aliases
-#nv() { nvim "$@"; }
 alias nvo="/usr/local/bin/nvim"
 alias nv="nvim"
 alias nvv="nv -R"
-alias nz='nv ~/.config/zsh/.zshrc'
-alias nw='nv ~/.config/wezterm/wezterm.lua'
+alias nz="nv $CONFIG_DOTS/zsh/.zshrc"
+alias nd="nv $CONFIG_DOTS"
 ne() { nv "$HOME/git/personal/notes/${1:-"curr.md"}" }
 # ---
 # --- misc
-alias ll='ls -la'
-alias psf='pstree'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias psf='pstree'
+else
+    alias psf='ps --forest'
+fi
+
+alias rm='printf "Avoid using rm directly. Use rmi or \\\\rm instead.\n"'
+alias rmi='\rm -i'
 # ---
 # --- update aliases
-alias wez.update="brew upgrade --cask wezterm-nightly --no-quarantine --greedy-latest"
 function starship.update() {
     local local_bin="$HOME/local/bin"
     sh -c "$(curl -sS https://starship.rs/install.sh)" -- -b "$local_bin"
