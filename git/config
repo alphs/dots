@@ -1,0 +1,9 @@
+[core]
+    editor = nvim
+
+[user]
+	email = 49196143+alphs@users.noreply.github.com
+	name = aaa
+
+[include]
+    path = ./git-aliases
