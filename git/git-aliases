@@ -3,4 +3,5 @@
     alias = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
     last = "!$CONFIG_DOTS/git/git-last.sh"
     lg = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr)%C(reset)' --abbrev-commit --date=relative
+    yeet = restore --staged
 
