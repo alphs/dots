@@ -17,7 +17,16 @@ if is_darwin() == true then
 	config.front_end = "Software"
 	config.send_composed_key_when_left_alt_is_pressed = true
 	config.send_composed_key_when_right_alt_is_pressed = false
+else
+	config.max_fps = 240
 end
+
+config.keys = {
+	-- CTRL-SHIFT-l activates the debug overlay
+	{ key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
+}
+
+config.hide_mouse_cursor_when_typing = true
 
 config.audible_bell = "Disabled"
 -- }} Misc
