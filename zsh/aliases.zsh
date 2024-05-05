@@ -15,10 +15,6 @@ fi
 
 alias rm='printf "Avoid using rm directly. Use rmi or \\\\rm instead.\n"'
 alias rmi='\rm -i'
-# ---
-# --- update aliases
-function starship.update() {
-    local local_bin="$HOME/local/bin"
-    sh -c "$(curl -sS https://starship.rs/install.sh)" -- -b "$local_bin"
-}
+
+alias show_completions='for command completion in ${(kv)_comps}; do printf "%-32s %s\n" $command $completion; done | sort'
 # ---

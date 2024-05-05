@@ -35,9 +35,10 @@ config.audible_bell = "Disabled"
 
 -- 'Catppuccin [ Frappe, Latte, Macchiato, Mocha ]'
 -- 'Catppuccin [ Frappé, Latte, Macchiato, Mocha ] (Gough)'
-config.color_scheme = "Catppuccin Macchiato" -- (Gogh)'
+config.color_scheme = "Catppuccin Macchiato"
 
 config.font_locator = "ConfigDirsOnly"
+-- TODO: fix paths below to point to nix stor or w/
 config.font_dirs = { "../installs/fonts_icons/JetBrainsMonoNerdFont", "../installs/fonts_icons/nonicons/dist" }
 config.font = wezterm.font_with_fallback({
 	"JetBrainsMono Nerd Font",
