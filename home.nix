@@ -38,6 +38,7 @@
     pkgs.lsd
     pkgs.nix-zsh-completions
     pkgs.zsh
+    pkgs.lazygit
 
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     nonicons
