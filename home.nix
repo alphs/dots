@@ -80,6 +80,11 @@
       source = ./wezterm;
     };
     # ---
+    "ghostty" = {
+      enable = true;
+      source = ./ghostty;
+    };
+    # ---
     # # "nvim" = {
     # #   enable = true;
     # #   source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/dots/nvim"; # this requires --impure

@@ -1,0 +1,39 @@
+
+# if both set below, ghostty ui will, seemingly, indefinitively hang with a blank screen.
+# open config works with keybind, when trying to toggle decorations will segfault second time
+# gtk-titlebar = false
+# gtk-tabs-location = hidden
+
+scrollback-limit = 200_000_000
+theme = catppuccin-macchiato
+font-size = 16
+cursor-style = underline
+cursor-style-blink = true
+shell-integration-features = no-cursor
+fullscreen = false
+
+gtk-tabs-location = hidden
+gtk-titlebar = true
+window-decoration = false
+
+# clamp to max size
+window-height = 999
+window-width = 999
+
+window-inherit-font-size = true
+window-padding-balance = true
+window-padding-color = extend
+# window-step-resize = true
+
+mouse-hide-while-typing = true
+grapheme-width-method = unicode
+selection-invert-fg-bg = true
+
+keybind = ctrl+shift+d=toggle_window_decorations
+keybind = ctrl+shift+f=toggle_fullscreen
+keybind = alt+f=toggle_tab_overview
+keybind = ctrl+comma=reload_config
+
+# sends `enter`
+keybind = ctrl+enter=text:\x0D
+
