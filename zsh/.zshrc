@@ -46,7 +46,7 @@ HELPDIR="/nix/store/qlqypbb4z48g6xsfc9d79w2fka2c8635-zsh-5.9/share/zsh/$ZSH_VERS
 # chmod u+w "$CONFIG_DOTS/zsh/completion/_fzf"
 # sed -i "1i #compdef fzf" "$CONFIG_DOTS/zsh/completion/_fzf"
 
-ln -sf "$HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh" "$CONFIG_DOTS/zsh/completion/_git"
+# ln -sf "$HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh" "$CONFIG_DOTS/zsh/completion/_git"
 
 fpath+=("$CONFIG_DOTS/zsh/completion")
 
@@ -64,7 +64,7 @@ compinit
 
 eval "$(zoxide init zsh --cmd cd)"
 
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # Should be at the end
 eval "$(starship init zsh)"

@@ -26,9 +26,9 @@
     #   ldd $(realpath $(which ~/.nix-profile/bin/tmux))
     # tmux is not statically compiled,
     # but it shouldn't be a very big issue due to how nix works
-    pkgs.neovim-unwrapped
+    # pkgs.neovim-unwrapped
     pkgs.starship
-    pkgs.wezterm
+    # pkgs.wezterm
     pkgs.fd
     pkgs.ripgrep
     pkgs.fzf
