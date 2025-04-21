@@ -11,9 +11,11 @@ fi
 
 # Create alias override commands using 'lsd'
 alias ls='lsd --group-directories-first'
-alias ll='lsd -l --group-directories-first'
-alias la='lsd -lA --group-directories-first'
+alias ll='lsd -lA --group-directories-first --date=relative'
+alias la='lsd -la --group-directories-first'
+
 function tree() {
     local depth="${1:-2}"
-    "lsd -l --group-directories-first --tree --depth=$depth"
+    shift
+    lsd --tree --group-directories-first --depth="$depth" "$@"
 }

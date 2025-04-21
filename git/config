@@ -1,5 +1,16 @@
 [core]
     editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+
+[merge]
+    conflictstyle = zdiff3
 
 [user]
 	email = 49196143+alphs@users.noreply.github.com

@@ -1,7 +1,7 @@
 #zmodload zsh/zpro
 
 local zap_path="${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-[ -f "$zap_path" ] && source "$zap_path"
+[ -f "$zap_path" ] && source "$zap_path" || echo "Zap not installed, mby run '$CONFIG_DOTS/scripts/zap_install.sh -k'"
 
 bindkey -e
 # KEYTIMEOUT=15
@@ -15,10 +15,8 @@ bindkey '^X^E' exchange-point-and-mark
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-syntax-highlighting"
-# ---
 # --- plugs
-plug "zsh-users/zsh-history-substring-search"
-# ---
+#plug "zsh-users/zsh-history-substring-search"
 # --- local
 plug "$CONFIG_DOTS/zsh/aliases.zsh"
 plug "$CONFIG_DOTS/zsh/exports.zsh"

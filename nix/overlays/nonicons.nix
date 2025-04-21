@@ -6,10 +6,10 @@ stdenv.mkDerivation ({
   version = "0.0.18";
 
   src = fetchFromGitHub {
-    owner = "yamatsum";
+    owner = "ya2s";
     repo = "nonicons";
-    rev = "8454b3b6c3ceeee18b386b7882c5a071dcf0f3af";
-    hash = "sha256-c2UUef5/l5ugKwWV8R3gijD6aorw9H4ca+mGjy+VyYE=";
+    rev = "5f56cf09167d2dcf5520bc0399f7019a7fea65d3";
+    hash = "sha256-U8NilXnr5HNZdmYB2xpMak5B8BQ/9ZnA8VktJsngB4M=";
   };
 
   installPhase = ''

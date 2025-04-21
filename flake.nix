@@ -1,34 +1,64 @@
+# flake.nix
 {
-  description = "Home Manager configuration of aaa";
-
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      nonicons = pkgs.callPackage ./nonicons.nix {
-        inherit (pkgs) fetchFromGitHub;
-      };
-    in {
-      homeConfigurations."aaa" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = { self, nixpkgs, ... }@inputs:
+  let
+    system = "x86_64-linux";
+    user = "aaa";
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs to pass through arguments to home.nix
-        extraSpecialArgs = {
-          inherit nonicons;
-        };
-      };
+    nonicons-overlay = final: prev: {
+      nonicons = final.callPackage ./nix/overlays/nonicons.nix {};
     };
+
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [ nonicons-overlay ];
+    };
+
+  in
+  {
+    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+      inherit system;
+
+      specialArgs = { inherit inputs; };
+
+      modules = [
+        ./nix/hosts/wsl.nix
+        inputs.home-manager.nixosModules.home-manager
+        {
+          nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+          users.users."${user}".shell = pkgs.zsh;
+          programs.zsh.enable = true;
+
+          home-manager = {
+            extraSpecialArgs = { inherit pkgs user inputs; isNixos = true; isWsl = true; };
+            users."${user}" = ./nix/home.nix;
+          };
+        }
+
+      ];
+    };
+
+# ---------------------
+
+    homeConfigurations."${user}" = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      extraSpecialArgs = { inherit pkgs user inputs; isNixos = false; };
+      modules = [
+        ./nix/home.nix
+      ];
+    };
+  };
 }
