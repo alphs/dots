@@ -16,6 +16,6 @@ alias la='lsd -la --group-directories-first'
 
 function tree() {
     local depth="${1:-2}"
-    shift
+    [ $# -gt 0 ] && shift
     lsd --tree --group-directories-first --depth="$depth" "$@"
 }
