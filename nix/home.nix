@@ -45,6 +45,8 @@
     delta
     python3
     htop
+    unzip
+    man-pages
 
     # Fonts
     nerd-fonts.jetbrains-mono

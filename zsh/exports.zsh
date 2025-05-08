@@ -7,6 +7,6 @@ export FZF_COMPLETION_TRIGGER="??"
 export STARSHIP_CONFIG="$CONFIG_DOTS/starship/starship.toml"
 export STARSHIP_CACHE="$CONFIG_DOTS/starship/cache"
 
-#export TMUX_CONF="$CONFIG_DOTS/tmux/tmux.conf"
+export TMUX_CONF="$CONFIG_DOTS/tmux/tmux.conf"
 
 export EDITOR="nvim"
