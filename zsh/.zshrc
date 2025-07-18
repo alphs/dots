@@ -3,14 +3,6 @@
 local zap_path="${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 [ -f "$zap_path" ] && source "$zap_path" || echo "Zap not installed, mby run '$CONFIG_DOTS/scripts/zap_install.sh -k'"
 
-bindkey -e
-# KEYTIMEOUT=15
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^X^X' edit-command-line
-bindkey '^X^E' exchange-point-and-mark
-
-
 # --- default
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
@@ -20,6 +12,7 @@ plug "zsh-users/zsh-syntax-highlighting"
 # --- local
 plug "$CONFIG_DOTS/zsh/aliases.zsh"
 plug "$CONFIG_DOTS/zsh/exports.zsh"
+plug "$CONFIG_DOTS/zsh/binds.zsh"
 plug "$CONFIG_DOTS/zsh/zsh-lsd.zsh"
 #plug "$CONFIG_DOTS/zsh/nix-stuff.zsh"
 # ---
