@@ -47,6 +47,8 @@
     htop
     unzip
     man-pages
+    # usbutils # only if usbip is enabled
+    # hwdata   # only if usbip is enabled
 
     # Fonts
     nerd-fonts.jetbrains-mono
@@ -93,6 +95,23 @@
         /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/
       ''
     else "";
+
+    # only if usbip is enabled
+    # needed since usbipd-win hardcodes path to executable due to running commands without shell.
+    # Not needed if connecting from wsl to windows usb instead, e.g:
+    ## Device needs to be in Shared state in windows to show up.
+    ## 1. `windows_ip="$(usbip list -r "$(ip route list | rg -m1 -r'$1' '^default via (.*?) dev .*$')")"`
+    ## 2. Find bus-id: `usbip list -r $windows_ip`
+    ## 3. `sudo usbip attach -r $windows_ip -b <bus-id>`.
+    #    wsl_usbipd-win_fix = if isWsl then
+    #      lib.hm.dag.entryAfter ["writeBoundary"] ''
+    #        run sudo ln -sf $VERBOSE_ARG \
+    #        $(which cat) /bin/cat
+    #        run sudo ln -sf $VERBOSE_ARG \
+    #        $(which ls) /bin/ls
+    #        run sudo modprobe $VERBOSE_ARG vhci-hcd
+    #      ''
+    #    else "";
   };
 
   # home.sessionVariables = {

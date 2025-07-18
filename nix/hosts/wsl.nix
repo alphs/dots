@@ -13,6 +13,9 @@ in
   wsl.enable = true;
   wsl.defaultUser = "aaa";
   wsl.startMenuLaunchers = true;
+  wsl.usbip.enable = true;
+
+  # boot.kernelModules = [ "usbip-core" "usbip-host" "vhci-hcd" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
