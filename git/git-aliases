@@ -1,8 +1,11 @@
+# vim: set ft=gitconfig
+
 [alias]
     s = status
-    ri = rebase --interactive
+    ri = "!f() { ref="${2:-HEAD}" ; n="$1" ; git rebase -i "${ref}~${n}"; }; f"
     rc = rebase --continue
     ap = add --patch
+    ff = pull --ff-only
     alias = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
     last = "!$CONFIG_DOTS/git/git-last.sh"
     lg = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr)%C(reset)' --abbrev-commit --date=relative
