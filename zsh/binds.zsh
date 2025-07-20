@@ -2,8 +2,8 @@
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^X^X' edit-command-line
-bindkey '^X^E' exchange-point-and-mark
+bindkey -M main '^X^X' edit-command-line
+bindkey -M main '^X^E' exchange-point-and-mark
 
 export KEYTIMEOUT=20
 set -o vi
@@ -21,7 +21,4 @@ bindkey -M main '^U' backward-kill-line
 bindkey -M main '^W' backward-kill-word
 bindkey -M main '^Y' yank
 bindkey -M main '^R' history-incremental-search-backward
-
-bindkey -M main '\ef' forward-word
-bindkey -M main '\eb' backward-word
 
