@@ -2,6 +2,7 @@
 alias nvo="/usr/local/bin/nvim"
 alias nv="nvim"
 alias nvv="nv -R"
+alias nvf="NVIM_APPNAME=nv nv"
 
 nvl () {
     local file_name="$(cut -d":" -f1 <<< "$1")"
