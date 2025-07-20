@@ -4,6 +4,15 @@ alias nv="nvim"
 alias nvv="nv -R"
 alias nz="nv $CONFIG_DOTS/zsh/.zshrc"
 alias nd="nv $CONFIG_DOTS"
+
+nvl () {
+    local file_name="$(cut -d":" -f1 <<< "$1")"
+    local line_number="$(cut -d":" -f2 <<< "$1")"
+    local line_column="$(cut -d":" -f3 <<< "$1")"
+    (( "$line_column" > 0 )) && line_column=$((line_column - 1))
+    nv "${file_name}" "+:norm ${line_number:-1}G${line_column:-1}l"
+}
+
 ne() { nv "$HOME/git/personal/notes/${1:-"curr.md"}" }
 # ---
 # --- misc
