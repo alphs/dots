@@ -180,4 +180,3 @@ zsh/completion
 starship/cache
 *.log
 tmux/plugins/*
-!tmux/plugins/tpm
