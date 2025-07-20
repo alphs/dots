@@ -2,8 +2,6 @@
 alias nvo="/usr/local/bin/nvim"
 alias nv="nvim"
 alias nvv="nv -R"
-alias nz="nv $CONFIG_DOTS/zsh/.zshrc"
-alias nd="nv $CONFIG_DOTS"
 
 nvl () {
     local file_name="$(cut -d":" -f1 <<< "$1")"
