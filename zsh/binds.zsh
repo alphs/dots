@@ -8,9 +8,9 @@ bindkey '^X^E' exchange-point-and-mark
 export KEYTIMEOUT=20
 set -o vi
 
-# 'main' is vi insert mode in zsh
-bindkey -M main '^P' history-beginning-search-backward
-bindkey -M main '^N' history-beginning-search-forward
+# 'main' is viins if 'set -o vi', man zshzle
+bindkey -M main '^P' up-line-or-history  # history-beginning-search-backward
+bindkey -M main '^N' down-line-or-history  # history-beginning-search-forward
 bindkey -M main '^A' beginning-of-line
 bindkey -M main '^E' end-of-line
 bindkey -M main '^B' backward-char
