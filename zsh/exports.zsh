@@ -10,3 +10,4 @@ export STARSHIP_CACHE="$CONFIG_DOTS/starship/cache"
 export TMUX_CONF="$CONFIG_DOTS/tmux/tmux.conf"
 
 export EDITOR="nvim"
+export VISUAL="nvim -R"
