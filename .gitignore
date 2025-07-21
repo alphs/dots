@@ -179,4 +179,3 @@ zsdoc/data
 zsh/completion
 starship/cache
 *.log
-tmux/plugins/*
