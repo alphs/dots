@@ -5,7 +5,7 @@
 
 # Exit if the 'lsd' command could not be found
 if ! (( $+commands[lsd] )); then
-    echo "WARNING: 'lsd' command not found"
+    echo "WARNING: 'lsd' command not found" >&2
     return
 fi
 
